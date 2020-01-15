@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2546d3dcbfd61f825b9b4b14382cf66501532466474cd0e11901f8948259cf46"
+            "sha256": "4dbed828d6299d27013fef5b264f49ec744e4f8fbe8a9aa8ce2fe4600b89a4ad"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,18 +18,26 @@
     "default": {
         "boto3": {
             "hashes": [
-                "sha256:982823e7c992d27e5954c81db93238ffc42c7a1210d863b4f5e048fdc088040e",
-                "sha256:f05ee90a738c2f1ec8088121030229f26ef6a809fb9a1338de2118fd088dd99a"
+                "sha256:37c0d967e9d7044208c84c6d082f03fc5aeeb355a78ea91f8cb66316aaeed890",
+                "sha256:6a8272ac27aca27b7d6d7d5cded7f8e8e2159ab635e3c48156f83808e35d6ac5"
             ],
             "index": "pypi",
-            "version": "==1.10.45"
+            "version": "==1.11.2"
         },
         "botocore": {
             "hashes": [
-                "sha256:88ee646f7a0fe6a418681c6f119a590fae23d8439c48c2aec6878f7f89430b1f",
-                "sha256:f48ba1ef04b25323c1d27fa6399795baa0ca9d316911b87be4d33acda5cef07c"
+                "sha256:562fbcddae3e58991d9549ed3d7e05a0f2d2a4a9ab7b661c05cfcc41607aaabb",
+                "sha256:e2e2bfac52b454335a1a0c1a3dd651928ad2b9fc8cd46d5b367fbb8d6622dc9d"
             ],
-            "version": "==1.13.45"
+            "version": "==1.14.2"
+        },
+        "click": {
+            "hashes": [
+                "sha256:2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13",
+                "sha256:5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+            ],
+            "index": "pypi",
+            "version": "==7.0"
         },
         "docutils": {
             "hashes": [
@@ -51,15 +59,14 @@
                 "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c",
                 "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"
             ],
-            "markers": "python_version >= '2.7'",
             "version": "==2.8.1"
         },
         "s3transfer": {
             "hashes": [
-                "sha256:6efc926738a3cd576c2a79725fed9afde92378aa5c6a957e3af010cb019fac9d",
-                "sha256:b780f2411b824cb541dbcd2c713d0cb61c7d1bcadae204cdddda2b35cef493ba"
+                "sha256:2157640a47c8b8fa2071bdd7b0d57378ec8957eede3bd083949c2dcc4d9b0dd4",
+                "sha256:e3343ae0f371781c17590cf06cb818a54484fbac9a65a5be7603a39b0a6d7b31"
             ],
-            "version": "==0.2.1"
+            "version": "==0.3.0"
         },
         "six": {
             "hashes": [
@@ -73,7 +80,6 @@
                 "sha256:a8a318824cc77d1fd4b2bec2ded92646630d7fe8619497b142c84a9e6f5a7293",
                 "sha256:f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
             ],
-            "markers": "python_version >= '3.4'",
             "version": "==1.25.7"
         }
     },
@@ -102,11 +108,11 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:0b67031a659fd7046cbf8c4efc2a0d514ee050434dfede76f540cfa6f806f65e",
-                "sha256:cc70e2111d1629e31ef9ff445529f8bb2b4fc4f93bfe140c33fe18cf36fde072"
+                "sha256:0f4bcf18293fb666df8511feec0403bdb7e061a5842ea6e88a3177b0ceb34ead",
+                "sha256:387686dd7fc9caf29d2fddcf3116c4b07a11d9025701d220c589a430b0171d8a"
             ],
             "index": "pypi",
-            "version": "==7.11.0"
+            "version": "==7.11.1"
         },
         "ipython-genutils": {
             "hashes": [
@@ -166,10 +172,10 @@
         },
         "wcwidth": {
             "hashes": [
-                "sha256:3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e",
-                "sha256:f4ebe71925af7b40a864553f761ed559b43544f8f71746c2d756c7fe788ade7c"
+                "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603",
+                "sha256:f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
             ],
-            "version": "==0.1.7"
+            "version": "==0.1.8"
         }
     }
 }
