@@ -1,4 +1,4 @@
-# python-automation
+# Python-automation
 # docker
 
 # 01-webotron
@@ -12,3 +12,5 @@ Webotron has now following features
 
  - List buckets
  - List bucket objects
+ - Create and Setup s3 bucket
+ - Sync directory tree to bucket
