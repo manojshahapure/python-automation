@@ -15,3 +15,4 @@ Webotron has now following features
  - Create and Setup s3 bucket
  - Sync directory tree to bucket
  - Set AWS profile with --profile=<profileName>
+ - 
