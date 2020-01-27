@@ -6,7 +6,8 @@ from pathlib import Path
 import mimetypes
 from botocore.exceptions import ClientError
 import util
-from hashlib import MD5
+import boto3
+from hashlib import md5
 import functools
 
 class BucketManager:
@@ -19,11 +20,15 @@ class BucketManager:
         self.session = session
         self.s3 = self.session.resource('s3')
         self.transfer_config = boto3.s3.transfer.TransferConfig(
-            multipart_chunksize = self.CHUNK_SIZE
+            multipart_chunksize = self.CHUNK_SIZE,
             multipart_threshold = self.CHUNK_SIZE
         )
 
         self.manifest = {}
+
+    def get_bucket(self, bucket_name):
+        """Get S3 bucket using bucket_name."""
+        return self.s3.Bucket(bucket_name)
 
     def get_region_name(self, bucket):
         """Get the bucket's region name."""
@@ -45,6 +50,7 @@ class BucketManager:
 
     def init_bucket(self, bucket_name):
         """Create or Get s3 bucket."""
+        print(self.session.region_name)
         s3_bucket = None
         try:
             if self.session.region_name == 'us-east-1':
@@ -63,6 +69,7 @@ class BucketManager:
                 s3_bucket = self.s3.Bucket(bucket_name)
             else:
                 raise error
+
         return s3_bucket
 
     def set_policy(self, bucket):
@@ -98,10 +105,10 @@ class BucketManager:
 
     def load_manifest(self, bucket):
         """Load Manifest for caching purpose."""
-        paginator = s3.meta.client.get_paginator('list_objects_v2')
+        paginator = self.s3.meta.client.get_paginator('list_objects_v2')
         for page in paginator.paginate(Bucket='apsraj01-manojs-pythonautomation-boto3-py'):
             for obj in page.get('Contents', []):
-                self.manifest[obj['Key']] = obj['Etag']
+                self.manifest[obj['Key']] = obj['ETag']
 
     @staticmethod
     def hash_data(data):
@@ -132,12 +139,12 @@ class BucketManager:
             return '"{}-{}"'.format(hash.hexdigest(), len(hashes))
 
     @staticmethod
-    def upload_file(bucket, path, key):
+    def upload_file(self, bucket, path, key):
         """Upload path to S3 bucket at key."""
         content_type = mimetypes.guess_type(key)[0] or 'text/plain'
 
         etag = self.gen_etag(path)
-        if self.manifest.get(key, '') = etag:
+        if self.manifest.get(key, '') == etag:
             return
 
         return bucket.upload_file(
@@ -146,8 +153,8 @@ class BucketManager:
             ExtraArgs={
                 'ContentType': content_type
             },
-            config = self.transfer_config
-            )
+            Config=self.transfer_config
+        )
 
     def sync(self, pathname, bucket_name):
         """Sync directory structure to S3 bucket."""
@@ -162,6 +169,7 @@ class BucketManager:
                     handle_directory(p)
                 if p.is_file():
                     self.upload_file(
+                        self,
                         bucket,
                         str(p.as_posix()),
                         str(p.relative_to(root).as_posix())
